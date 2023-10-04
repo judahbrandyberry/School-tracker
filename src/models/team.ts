@@ -18,6 +18,12 @@ export interface Team {
   sport: Sport;
   gender: Gender;
   players: Player[];
+  label: string;
+  home_description?: string;
+  hide_gender?: boolean;
+  created_at: string;
+  updated_at: string;
+  school_id: string;
 }
 
 export type Teams = Team[];

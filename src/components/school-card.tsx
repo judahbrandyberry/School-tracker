@@ -10,7 +10,7 @@ export const SchoolCard = ({school}: SchoolCardProps) => {
   const navigation = useNavigation();
   return (
     <TouchableOpacity
-      onPress={() => navigation.navigate('School', {id: school.id})}>
+      onPress={() => navigation.navigate('School', {schoolId: school.id})}>
       <Text
         style={{
           color: school.primary_color,
