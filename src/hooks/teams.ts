@@ -1,4 +1,4 @@
-import {useQuery} from 'react-query';
+import {useQuery} from '@tanstack/react-query';
 import {Teams} from '../models';
 import {RouteProp, useRoute} from '@react-navigation/native';
 import {RootStackParamList} from '../../App';

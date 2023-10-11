@@ -1,15 +1,19 @@
-import {RouteProp, useRoute} from '@react-navigation/native';
+import {useNavigation} from '@react-navigation/native';
 import {ScrollView, Text, View} from 'react-native';
-import {useSchool, useSchools} from '../hooks/schools';
+import {useSchool} from '../hooks/schools';
 import {useTeams} from '../hooks/teams';
 import {useTailwind} from 'tailwind-rn';
 import {TeamCard} from '../components/team-card';
-import {RootStackParamList} from '../../App';
 
 export const SchoolScreen = () => {
   const tw = useTailwind();
   const {school} = useSchool();
   const {data: teams} = useTeams(school?.id);
+  const navigation = useNavigation();
+
+  navigation.setOptions({
+    title: school?.name,
+  });
 
   const filteredTeams = teams?.filter(team => {
     if (team.season.name === 'Fall') {

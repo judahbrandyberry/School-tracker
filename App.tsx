@@ -3,15 +3,17 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {HomeScreen} from './src/screens/home';
 import {SchoolScreen} from './src/screens/school';
-import {QueryClient, QueryClientProvider} from 'react-query';
+import {QueryClient, QueryClientProvider} from '@tanstack/react-query';
 import {TailwindProvider} from 'tailwind-rn';
 import utilities from './tailwind.json';
 import {TeamScreen} from './src/screens/team';
+import {PlayerScreen} from './src/screens/player';
 
 export type RootStackParamList = {
   Home: undefined;
   School: {schoolId: string};
   Team: {teamId: string; schoolId: string};
+  Player: {playerId: string; teamId: string; schoolId: string};
 };
 
 declare global {
@@ -34,6 +36,7 @@ function App(): JSX.Element {
             <Stack.Screen name="Home" component={HomeScreen} />
             <Stack.Screen name="School" component={SchoolScreen} />
             <Stack.Screen name="Team" component={TeamScreen} />
+            <Stack.Screen name="Player" component={PlayerScreen} />
           </Stack.Navigator>
         </NavigationContainer>
       </QueryClientProvider>

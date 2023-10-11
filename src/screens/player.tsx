@@ -6,33 +6,33 @@ import {useTailwind} from 'tailwind-rn';
 import {TeamCard} from '../components/team-card';
 import {RootStackParamList} from '../../App';
 import {PlayerCard} from '../components/player-card';
+import {usePlayer} from '../hooks/players';
 
-export const TeamScreen = () => {
+export const PlayerScreen = () => {
   const tw = useTailwind();
-  const route = useRoute<RouteProp<RootStackParamList, 'Team'>>();
+  const route = useRoute<RouteProp<RootStackParamList, 'Player'>>();
   const params = route.params;
   const {school, isSuccess} = useSchool();
   const {team} = useTeam();
+  const {player} = usePlayer();
   const navigation = useNavigation();
 
   navigation.setOptions({
-    title: team?.name,
+    title: `${player?.first_name} ${player?.last_name}`,
   });
 
-  if (!school) {
+  if (!school || !player || !team) {
     return null;
   }
 
   return (
     <ScrollView style={tw('flex-1')}>
-      {team?.players?.map(player => (
-        <PlayerCard
-          playerId={player.id.toString()}
-          key={player.id}
-          schoolId={school.id}
-          teamId={team.id}
-        />
-      ))}
+      <PlayerCard
+        playerId={player.id.toString()}
+        key={player.id}
+        schoolId={school.id}
+        teamId={team.id}
+      />
     </ScrollView>
   );
 };
