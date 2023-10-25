@@ -1,0 +1,2 @@
+Showing Recent Issues
+[Warning] You need to configure your node path in the `".xcode.env" file` environment. You can set it up quickly by running: `echo export NODE_BINARY=$(command -v node) > .xcode.env` in the ios folder. This is needed by React Native to work correctly. We fallback to the DEPRECATED behavior of finding `node`. This will be REMOVED in a future version. You can read more about this here: https://reactnative.dev/docs/environment-setup#optional-configuring-your-environment

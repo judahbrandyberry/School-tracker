@@ -1,6 +1,7 @@
-import {Image, Text, TouchableOpacity} from 'react-native';
+import {Image, Text, TouchableOpacity, useColorScheme} from 'react-native';
 import {Location, School} from '../models';
 import {useNavigation} from '@react-navigation/native';
+import {useTailwind} from 'tailwind-rn';
 
 interface SchoolCardProps {
   school: School;
@@ -8,23 +9,18 @@ interface SchoolCardProps {
 
 export const SchoolCard = ({school}: SchoolCardProps) => {
   const navigation = useNavigation();
+  const tw = useTailwind();
+  const theme = useColorScheme();
+
   return (
     <TouchableOpacity
+      style={tw('items-center w-24 gap-2')}
       onPress={() => navigation.navigate('School', {schoolId: school.id})}>
+      <Image source={{uri: school.logo_url}} style={{width: 30, height: 30}} />
       <Text
-        style={{
-          color: school.primary_color,
-          marginTop: 20,
-          marginLeft: 5,
-          textAlign: 'center',
-        }}>
-        <Image
-          source={{uri: school.logo_url}}
-          style={{width: 30, height: 30}}
-        />
-        {school.name} - {school.mascot}
-        {'\n'}
-        {school.location.address_1}
+        numberOfLines={1}
+        style={theme === 'dark' ? {color: 'white'} : {color: 'black'}}>
+        {school.name.replace('High School', '').replace('Academy', '').trim()}
       </Text>
     </TouchableOpacity>
   );

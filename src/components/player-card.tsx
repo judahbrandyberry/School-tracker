@@ -1,4 +1,4 @@
-import {Text, TouchableOpacity, View} from 'react-native';
+import {Text, TouchableOpacity, View, useColorScheme} from 'react-native';
 import {useTailwind} from 'tailwind-rn';
 import {Player} from '../models/player';
 import {useNavigation} from '@react-navigation/native';
@@ -14,11 +14,14 @@ interface PlayerCardProps {
 export const PlayerCard = ({playerId, schoolId, teamId}: PlayerCardProps) => {
   const tw = useTailwind();
   const navigation = useNavigation();
-  const {school} = useSchool();
+  const {school} = useSchool(schoolId);
   const {player} = usePlayer(playerId, teamId, schoolId);
+  const theme = useColorScheme();
+  const color = theme === 'dark' ? 'white' : 'black';
 
   return (
     <TouchableOpacity
+      style={tw('flex-1')}
       onPress={() =>
         navigation.navigate('Player', {
           playerId,
@@ -26,11 +29,19 @@ export const PlayerCard = ({playerId, schoolId, teamId}: PlayerCardProps) => {
           schoolId,
         })
       }>
-      <View style={tw('rounded p-4 bg-white mb-4')}>
-        <Text style={tw('font-bold text-lg mt-4')}>
+      <View
+        style={[
+          tw('rounded p-4 bg-white mb-4'),
+          theme === 'dark'
+            ? {backgroundColor: '#27272a'}
+            : {backgroundColor: 'white'},
+        ]}>
+        <Text style={[tw('font-bold text-lg mt-4'), {color}]}>
           {player?.first_name} {player?.last_name} {player?.jersey}
         </Text>
-        <Text style={tw('font-bold text-lg')}>{player?.grad_year}</Text>
+        <Text style={[tw('font-bold text-lg'), {color}]}>
+          {player?.grad_year}
+        </Text>
         <Text>
           {player?.height} {player?.weight} {player?.position}
         </Text>

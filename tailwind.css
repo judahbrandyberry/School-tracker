@@ -1,29 +1,13 @@
-.mb-2 {
-  margin-bottom: 0.5rem
-}
-
 .mb-4 {
   margin-bottom: 1rem
-}
-
-.mt-4 {
-  margin-top: 1rem
-}
-
-.ml-2 {
-  margin-left: 0.5rem
-}
-
-.mr-2 {
-  margin-right: 0.5rem
 }
 
 .mr-4 {
   margin-right: 1rem
 }
 
-.h-32 {
-  height: 8rem
+.mt-4 {
+  margin-top: 1rem
 }
 
 .h-48 {
@@ -34,12 +18,72 @@
   width: 100%
 }
 
+.w-24 {
+  width: 6rem
+}
+
 .flex-1 {
   flex: 1 1 0%
 }
 
 .flex-row {
   flex-direction: row
+}
+
+.flex-col {
+  flex-direction: column
+}
+
+.flex-wrap {
+  flex-wrap: wrap
+}
+
+.items-end {
+  align-items: flex-end
+}
+
+.items-center {
+  align-items: center
+}
+
+.justify-end {
+  justify-content: flex-end
+}
+
+.justify-center {
+  justify-content: center
+}
+
+.justify-between {
+  justify-content: space-between
+}
+
+.justify-around {
+  justify-content: space-around
+}
+
+.justify-evenly {
+  justify-content: space-evenly
+}
+
+.justify-stretch {
+  justify-content: stretch
+}
+
+.gap-4 {
+  gap: 1rem
+}
+
+.gap-10 {
+  gap: 2.5rem
+}
+
+.gap-8 {
+  gap: 2rem
+}
+
+.gap-2 {
+  gap: 0.5rem
 }
 
 .overflow-hidden {
@@ -59,6 +103,10 @@
   padding: 1rem
 }
 
+.p-8 {
+  padding: 2rem
+}
+
 .text-lg {
   font-size: 1.125rem;
   line-height: 1.75rem
@@ -71,16 +119,6 @@
 
 .font-bold {
   font-weight: 700
-}
-
-.text-gray-100 {
-  --tw-text-opacity: 1;
-  color: rgb(243 244 246 / var(--tw-text-opacity))
-}
-
-.text-gray-800 {
-  --tw-text-opacity: 1;
-  color: rgb(31 41 55 / var(--tw-text-opacity))
 }
 
 .text-gray-500 {

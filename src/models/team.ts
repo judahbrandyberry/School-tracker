@@ -24,6 +24,13 @@ export interface Team {
   created_at: string;
   updated_at: string;
   school_id: string;
+  record?: Record;
+}
+
+interface Record {
+  win: number;
+  loss: number;
+  tie: number;
 }
 
 export type Teams = Team[];
