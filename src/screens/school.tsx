@@ -23,9 +23,6 @@ export const SchoolScreen = () => {
 
   return (
     <ScrollView style={tw('flex-1')}>
-      <Text>
-        school {school?.name} - {teams?.length}
-      </Text>
       <View style={tw('p-4')}>
         {filteredTeams?.map(team => (
           <TeamCard teamId={team.id} key={team.id} schoolId={team.school_id} />
