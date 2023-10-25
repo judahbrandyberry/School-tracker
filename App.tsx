@@ -13,6 +13,7 @@ import utilities from './tailwind.json';
 import {TeamScreen} from './src/screens/team';
 import {PlayerScreen} from './src/screens/player';
 import {useColorScheme} from 'react-native';
+import codePush from 'react-native-code-push';
 
 export type RootStackParamList = {
   Home: undefined;
@@ -30,6 +31,11 @@ declare global {
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
 const queryClient = new QueryClient();
+const codePushOptions = {
+  checkFrequency: codePush.CheckFrequency.ON_APP_RESUME,
+  installMode: codePush.InstallMode.IMMEDIATE,
+  mandatoryInstallMode: codePush.InstallMode.IMMEDIATE,
+};
 
 function App(): JSX.Element {
   const theme = useColorScheme();
@@ -50,4 +56,4 @@ function App(): JSX.Element {
     </TailwindProvider>
   );
 }
-export default App;
+export default codePush(codePushOptions)(App);
