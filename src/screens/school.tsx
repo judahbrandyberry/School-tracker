@@ -1,5 +1,5 @@
 import {useNavigation} from '@react-navigation/native';
-import {ScrollView, Text, View} from 'react-native';
+import {ScrollView, View} from 'react-native';
 import {useSchool} from '../hooks/schools';
 import {useTeams} from '../hooks/teams';
 import {useTailwind} from 'tailwind-rn';

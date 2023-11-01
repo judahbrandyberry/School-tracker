@@ -1,9 +1,8 @@
 import {RouteProp, useNavigation, useRoute} from '@react-navigation/native';
-import {ScrollView, Text, View} from 'react-native';
-import {useSchool, useSchools} from '../hooks/schools';
-import {useTeam, useTeams} from '../hooks/teams';
+import {ScrollView} from 'react-native';
+import {useSchool} from '../hooks/schools';
+import {useTeam} from '../hooks/teams';
 import {useTailwind} from 'tailwind-rn';
-import {TeamCard} from '../components/team-card';
 import {RootStackParamList} from '../../App';
 import {PlayerCard} from '../components/player-card';
 import {usePlayer} from '../hooks/players';

@@ -1,10 +1,11 @@
 import React from 'react';
 import {SchoolCard} from '../components/school-card';
 import {useSchools} from '../hooks/schools';
-import {ScrollView, Text, View} from 'react-native';
+import {ScrollView, View} from 'react-native';
 import {TeamCard} from '../components/team-card';
 import {PlayerCard} from '../components/player-card';
 import {useTailwind} from 'tailwind-rn';
+import {Text} from '../components/text';
 
 export const HomeScreen = () => {
   const {data: schools} = useSchools();
@@ -19,10 +20,15 @@ export const HomeScreen = () => {
   return (
     <ScrollView>
       <View style={tw('p-4')}>
-        <Text>Teams of the week</Text>
-        <Text>Player of the week</Text>
+        <Text size="lg" align="center">
+          Teams of the week
+        </Text>
         <TeamCard teamId="snap-1182-288" schoolId="snap-1182" showSchoolName />
         <TeamCard teamId="snap-792-588" schoolId="snap-792" showSchoolName />
+
+        <Text size="lg" align="center">
+          Players of the week
+        </Text>
         <View style={tw('flex-row gap-4')}>
           <PlayerCard
             schoolId={'snap-1182'}

@@ -1,7 +1,8 @@
-import {Image, Text, TouchableOpacity, useColorScheme} from 'react-native';
-import {Location, School} from '../models';
+import {Image, TouchableOpacity} from 'react-native';
+import {School} from '../models';
 import {useNavigation} from '@react-navigation/native';
 import {useTailwind} from 'tailwind-rn';
+import {Text} from './text';
 
 interface SchoolCardProps {
   school: School;
@@ -10,7 +11,6 @@ interface SchoolCardProps {
 export const SchoolCard = ({school}: SchoolCardProps) => {
   const navigation = useNavigation();
   const tw = useTailwind();
-  const theme = useColorScheme();
 
   return (
     <TouchableOpacity
@@ -21,9 +21,7 @@ export const SchoolCard = ({school}: SchoolCardProps) => {
         style={{width: 50, height: 40}}
         resizeMode="contain"
       />
-      <Text
-        numberOfLines={1}
-        style={theme === 'dark' ? {color: 'white'} : {color: 'black'}}>
+      <Text numberOfLines={1}>
         {school.name.replace('High School', '').replace('Academy', '').trim()}
       </Text>
     </TouchableOpacity>
