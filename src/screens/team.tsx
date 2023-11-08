@@ -3,9 +3,10 @@ import {ScrollView, View} from 'react-native';
 import {useSchool, useSchools} from '../hooks/schools';
 import {useTeam, useTeams} from '../hooks/teams';
 import {useTailwind} from 'tailwind-rn';
-import {TeamCard} from '../components/team-card';
 import {RootStackParamList} from '../../App';
 import {PlayerCard} from '../components/player-card';
+import {useEvents} from '../hooks/events';
+import {Text} from '../components/text';
 
 export const TeamScreen = () => {
   const tw = useTailwind();
@@ -13,6 +14,7 @@ export const TeamScreen = () => {
   const params = route.params;
   const {school, isSuccess} = useSchool();
   const {team} = useTeam();
+  const {data: events} = useEvents(school?.id, team?.id);
   const navigation = useNavigation();
 
   navigation.setOptions({
@@ -27,11 +29,15 @@ export const TeamScreen = () => {
     <ScrollView style={tw('flex-1')}>
       {team?.players?.map(player => (
         <PlayerCard
-          playerId={player.id.toString()}
+          playerId={`${player.first_name}-${player.last_name}-${player.jersey}`}
           key={player.id}
           schoolId={school.id}
           teamId={team.id}
         />
+      ))}
+
+      {events?.map(event => (
+        <Text key={event.id}>{event.name}</Text>
       ))}
     </ScrollView>
   );

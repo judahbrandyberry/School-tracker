@@ -4,6 +4,7 @@ import {useTailwind} from 'tailwind-rn';
 import {useTeam} from '../hooks/teams';
 import {useSchool} from '../hooks/schools';
 import {Text} from './text';
+import {Card} from './card';
 
 interface TeamCardProps {
   teamId: string;
@@ -22,8 +23,7 @@ export const TeamCard = ({teamId, schoolId, showSchoolName}: TeamCardProps) => {
   }
 
   return (
-    <TouchableOpacity
-      style={[tw('rounded p-4 bg-white mb-4')]}
+    <Card
       onPress={() =>
         navigation.navigate('Team', {teamId: team.id, schoolId: team.school_id})
       }>
@@ -59,7 +59,7 @@ export const TeamCard = ({teamId, schoolId, showSchoolName}: TeamCardProps) => {
           </View>
         ) : null}
       </View>
-    </TouchableOpacity>
+    </Card>
   );
 };
 

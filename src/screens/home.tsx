@@ -33,11 +33,11 @@ export const HomeScreen = () => {
           <PlayerCard
             schoolId={'snap-1182'}
             teamId={'snap-1182-288'}
-            playerId={'17811'}></PlayerCard>
+            playerId={'Isaac-Brandyberry-7'}></PlayerCard>
           <PlayerCard
             schoolId={'snap-792'}
             teamId={'snap-792-588'}
-            playerId={'17849'}></PlayerCard>
+            playerId={'Kaiden-Koch-'}></PlayerCard>
         </View>
         <View style={tw('flex-row gap-8 flex-wrap justify-evenly')}>
           {filteredSchools?.map(school => (

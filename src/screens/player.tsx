@@ -27,7 +27,7 @@ export const PlayerScreen = () => {
   return (
     <ScrollView style={tw('flex-1')}>
       <PlayerCard
-        playerId={player.id.toString()}
+        playerId={`${player.first_name}-${player.last_name}-${player.jersey}`}
         key={player.id}
         schoolId={school.id}
         teamId={team.id}
