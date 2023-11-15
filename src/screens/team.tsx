@@ -7,6 +7,7 @@ import {RootStackParamList} from '../../App';
 import {PlayerCard} from '../components/player-card';
 import {useEvents} from '../hooks/events';
 import {Text} from '../components/text';
+import {EventCard} from '../components/event-card';
 
 export const TeamScreen = () => {
   const tw = useTailwind();
@@ -37,7 +38,7 @@ export const TeamScreen = () => {
       ))}
 
       {events?.map(event => (
-        <Text key={event.id}>{event.name}</Text>
+        <EventCard event={event} />
       ))}
     </ScrollView>
   );

@@ -14,12 +14,15 @@ import {TeamScreen} from './src/screens/team';
 import {PlayerScreen} from './src/screens/player';
 import {useColorScheme} from 'react-native';
 import codePush from 'react-native-code-push';
+import {Event} from './src/models/event';
+import {EventScreen} from './src/screens/event';
 
 export type RootStackParamList = {
   Home: undefined;
   School: {schoolId: string};
   Team: {teamId: string; schoolId: string};
   Player: {playerId: string; teamId: string; schoolId: string};
+  Event: Event;
 };
 
 declare global {
@@ -50,6 +53,7 @@ function App(): JSX.Element {
             <Stack.Screen name="School" component={SchoolScreen} />
             <Stack.Screen name="Team" component={TeamScreen} />
             <Stack.Screen name="Player" component={PlayerScreen} />
+            <Stack.Screen name="Event" component={EventScreen} />
           </Stack.Navigator>
         </NavigationContainer>
       </QueryClientProvider>

@@ -16,6 +16,7 @@ export const HomeScreen = () => {
       return true;
     }
   });
+  const result = 'Hiya how are you'.substring(0, 8);
 
   return (
     <ScrollView>
@@ -25,7 +26,7 @@ export const HomeScreen = () => {
         </Text>
         <TeamCard teamId="snap-1182-288" schoolId="snap-1182" showSchoolName />
         <TeamCard teamId="snap-792-588" schoolId="snap-792" showSchoolName />
-
+        <Text>{result}</Text>
         <Text size="lg" align="center">
           Players of the week
         </Text>
