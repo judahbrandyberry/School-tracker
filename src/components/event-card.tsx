@@ -27,10 +27,10 @@ export const EventCard = ({event}: EventCardProps) => {
           <Text>{event.name}</Text>
         </View>
         <View style={tw('flex-1')}>
-          <Text style={tw('font-bold')} align="right" size="xl">
+          <Text style={tw('font-bold')} align="center" size="xl">
             {format(new Date(event.start), 'MMMM, dd, yyyy')}
           </Text>
-          <Text style={tw('font-bold')} align="right" size="xl">
+          <Text style={tw('font-bold')} align="center" size="xl">
             {format(new Date(event.start), 'h:mm a')}
           </Text>
         </View>

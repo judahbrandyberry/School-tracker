@@ -13,7 +13,7 @@ export const Card = ({children, onPress}: Card) => {
   return (
     <TouchableOpacity
       style={[
-        tw('rounded p-4 bg-white mb-4 flex-1'),
+        tw('rounded-xl p-6 bg-white mb-4 flex-1'),
         theme === 'dark'
           ? {backgroundColor: '#27272a'}
           : {backgroundColor: 'white'},

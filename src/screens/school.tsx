@@ -16,7 +16,7 @@ export const SchoolScreen = () => {
   });
 
   const filteredTeams = teams?.filter(team => {
-    if (team.season.name === 'Fall') {
+    if (team.season.name === 'Winter') {
       return true;
     }
   });
