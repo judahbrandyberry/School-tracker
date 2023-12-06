@@ -6,6 +6,7 @@ import {TeamCard} from '../components/team-card';
 import {PlayerCard} from '../components/player-card';
 import {useTailwind} from 'tailwind-rn';
 import {Text} from '../components/text';
+import {CopyRight} from '../components/copyright';
 
 export const HomeScreen = () => {
   const {data: schools} = useSchools();
@@ -16,7 +17,7 @@ export const HomeScreen = () => {
       return true;
     }
   });
-  const result = 'Hiya how are you'.substring(0, 8);
+  const result = ''.substring(0, 8);
 
   return (
     <ScrollView>
@@ -45,6 +46,7 @@ export const HomeScreen = () => {
             <SchoolCard school={school} key={school.id} />
           ))}
         </View>
+        <CopyRight yearBuilt={2020} appName={'Student Atheltics'} />
       </View>
     </ScrollView>
   );
