@@ -46,7 +46,7 @@ export const HomeScreen = () => {
             <SchoolCard school={school} key={school.id} />
           ))}
         </View>
-        <CopyRight yearBuilt={2020} appName={'Student Atheltics'} />
+        <CopyRight yearBuilt="2023" appName={'Student Atheltics'} />
       </View>
     </ScrollView>
   );

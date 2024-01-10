@@ -1,5 +1,11 @@
 import {RouteProp, useNavigation, useRoute} from '@react-navigation/native';
-import {Image, ScrollView, TouchableOpacity, View} from 'react-native';
+import {
+  Image,
+  ScrollView,
+  TextInput,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 import {useSchool, useSchools} from '../hooks/schools';
 import {useTeam, useTeams} from '../hooks/teams';
 import {useTailwind} from 'tailwind-rn';
@@ -11,7 +17,7 @@ import {EventCard} from '../components/event-card';
 import ImageModal from 'react-native-image-modal';
 import {useState} from 'react';
 import {Tab} from '../components/tab';
-import {isFuture, isPast} from 'date-fns';
+import {format, isFuture, isPast} from 'date-fns';
 
 export const TeamScreen = () => {
   const tw = useTailwind();
@@ -21,20 +27,37 @@ export const TeamScreen = () => {
   const {team} = useTeam();
   const {data: events} = useEvents(school?.id, team?.id);
   const navigation = useNavigation();
+  const [search, onChangeSearch] = useState('');
 
   navigation.setOptions({
     title: team?.name,
   });
 
   const pastEvents = events?.filter(event => {
-    if (isPast(new Date(event.start))) {
-      return true;
+    const start = new Date(event.start);
+    if (isPast(start)) {
+      if (
+        format(start, 'MMMM, dd, yyyy, EEEE').includes(search) ||
+        event.opponent_name.includes(search)
+      ) {
+        return true;
+      } else {
+        return false;
+      }
     }
   });
 
   const upcomingEvents = events?.filter(event => {
+    const start = new Date(event.start);
     if (isFuture(new Date(event.start))) {
-      return true;
+      if (
+        format(start, 'MMMM, dd, yyyy, EEEE').includes(search) ||
+        event.opponent_name.includes(search)
+      ) {
+        return true;
+      } else {
+        return false;
+      }
     }
   });
 
@@ -84,6 +107,11 @@ export const TeamScreen = () => {
 
       {tab === 'Past Events' ? (
         <View>
+          <TextInput
+            style={tw('border mb-4 border-white rounded-xl text-white p-2')}
+            onChangeText={onChangeSearch}
+            value={search}></TextInput>
+
           {pastEvents?.map(event => (
             <EventCard event={event} />
           ))}
@@ -92,6 +120,10 @@ export const TeamScreen = () => {
 
       {tab === 'Upcoming Events' ? (
         <View>
+          <TextInput
+            style={tw('border mb-4  border-white rounded-xl text-white p-2')}
+            onChangeText={onChangeSearch}
+            value={search}></TextInput>
           {upcomingEvents?.map(event => (
             <EventCard event={event} />
           ))}

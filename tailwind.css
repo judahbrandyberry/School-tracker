@@ -1,3 +1,15 @@
+.m-2 {
+  margin: 0.5rem
+}
+
+.m-3 {
+  margin: 0.75rem
+}
+
+.m-4 {
+  margin: 1rem
+}
+
 .mb-4 {
   margin-bottom: 1rem
 }
@@ -8,6 +20,14 @@
 
 .mt-4 {
   margin-top: 1rem
+}
+
+.mr-0 {
+  margin-right: 0px
+}
+
+.mr-2 {
+  margin-right: 0.5rem
 }
 
 .h-48 {
@@ -74,6 +94,19 @@
   border-radius: 0.75rem
 }
 
+.rounded-lg {
+  border-radius: 0.5rem
+}
+
+.border {
+  border-width: 1px
+}
+
+.border-white {
+  --tw-border-opacity: 1;
+  border-color: rgb(255 255 255 / var(--tw-border-opacity))
+}
+
 .bg-slate-600 {
   --tw-bg-opacity: 1;
   background-color: rgb(71 85 105 / var(--tw-bg-opacity))
@@ -94,6 +127,10 @@
 
 .p-6 {
   padding: 1.5rem
+}
+
+.p-11 {
+  padding: 2.75rem
 }
 
 .text-left {
@@ -145,4 +182,9 @@
 .text-gray-600 {
   --tw-text-opacity: 1;
   color: rgb(75 85 99 / var(--tw-text-opacity))
+}
+
+.text-white {
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity))
 }
